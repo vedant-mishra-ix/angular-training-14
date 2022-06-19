@@ -1,0 +1,28 @@
+<app-header></app-header>
+<div class="d-flex justify-content-start">
+  <div class="row">
+    <div class="col">
+    <app-sidebar></app-sidebar>
+    </div>
+  </div>
+    <div class="row mt-5 sidebar-section">
+      <div class="col">
+        <a (click)="backbutton()" class="btn btn-primary px-5">Back</a>
+        <hr>
+      </div>
+      <div class="col">
+        <a routerLink="list" class="btn btn-primary px-5">List</a>
+        <hr>
+      </div>
+      <div class="col">
+        <a routerLink="add" class="btn btn-primary  px-5">Add</a>
+        <hr>
+      </div>
+      <div class="col">
+        <a routerLink="edit" class="btn btn-primary  px-5">Edit</a>
+        <hr>
+      </div>
+    <router-outlet></router-outlet>
+    </div>
+</div>
+
