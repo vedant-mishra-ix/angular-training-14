@@ -12,7 +12,7 @@ export class CustomerComponent implements OnInit {
 
   backbutton()
   {
-    this.routes.navigate(['admin'])
+    this.routes.navigate(['./admin/customer'])
   }
 
   ngOnInit(): void {

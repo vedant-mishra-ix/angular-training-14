@@ -6,6 +6,7 @@ import { ListComponent } from './list/list.component';
 import { AddComponent } from './add/add.component';
 import { EditComponent } from './edit/edit.component';
 import { ListtIdComponent } from './listt-id/listt-id.component';
+import { CustomerComponent } from './customer.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { ListtIdComponent } from './listt-id/listt-id.component';
     ListComponent,
     AddComponent,
     EditComponent,
-    ListtIdComponent
+    ListtIdComponent,
+    CustomerComponent
   ],
   imports: [
     CommonModule,

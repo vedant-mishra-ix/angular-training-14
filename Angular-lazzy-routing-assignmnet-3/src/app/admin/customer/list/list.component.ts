@@ -10,33 +10,37 @@ export class ListComponent implements OnInit {
 
   constructor( private route: Router) { }
 
-   list_arr = [
+  list_arr = [
     {
       id:1,
-      name:'raviraj'
+      name:'raviraj',
+      email:'ravi@gmail.com',
+      mobile:'8299202304'
     },
     {
       id:2,
-      name:'pankaj'
+      name:'pankaj',
+      email:'ravi@gmail.com',
+      mobile:'8299202304'
     },
     {
       id:3,
       name:'shubham',
+      email:'ravi@gmail.com',
+      mobile:'8299202304'
     },
     {
       id:4,
       name:'balaji',
+      email:'ravi@gmail.com',
+      mobile:'8299202304'
     }
   ]
 
-   selectid(item:any)
+   selectid(Employeeid:number)
    {
-    let id = this.route.navigate(['./list',item.id]);
+    let id = this.route.navigate(['./admin/customer/list',Employeeid]);
    }
-  // idAlert(item:any)
-  // {
-  //   let id = parseInt(this.alertId.snapshot.paramMap.get('id'));
-  // }
   ngOnInit(): void {
   }
 

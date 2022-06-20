@@ -3,20 +3,18 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AdminComponent } from './admin/admin.component';
-import { AdminModule } from './admin/admin.module';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AdminComponent,
     NotfoundComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
-    AppRoutingModule,
-    AdminModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

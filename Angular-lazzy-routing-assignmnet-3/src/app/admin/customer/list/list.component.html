@@ -1,5 +1,21 @@
-<div class="container">
-  <ul (click)="selectid(item)" class="item-list" *ngFor="let item of list_arr">
+<div class="container-fluid">
+  <!-- <ul (click)="selectid(item)" class="item-list" *ngFor="let item of list_arr">
     <li class="fs-2 text-danger bg-light">{{item.id}}.   {{item.name}}</li>
-  </ul>
+  </ul> -->
+  <table class="table table-hover">
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>mobile</th>
+      <th>Action</th>
+    </tr>
+    <tr *ngFor="let item of list_arr">
+      <td>{{item.id}}</td>
+      <td>{{item.name}}</td>
+      <td>{{item.email}}</td>
+      <td>{{item.mobile}}</td>
+      <td (click)="selectid(item.id)"><span  class="btn btn-danger  bg-danger">Edit</span></td>
+    </tr>
+  </table>
 </div>

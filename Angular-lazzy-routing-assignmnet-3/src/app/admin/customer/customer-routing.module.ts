@@ -12,7 +12,7 @@ const routes: Routes = [
     component:CustomerComponent,
     children:[
       {
-        path:'list',
+        path:'',
         component:ListComponent
       },
       {

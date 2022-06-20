@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 export class ListtIdComponent implements OnInit {
 
   constructor(private route : ActivatedRoute) { }
+  @Input() list_arr:any;
 
   public list_id:any;
   ngOnInit(): void {

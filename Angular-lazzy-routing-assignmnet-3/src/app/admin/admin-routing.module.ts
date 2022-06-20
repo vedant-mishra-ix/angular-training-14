@@ -5,12 +5,15 @@ import { AdminComponent } from './admin.component';
 const routes: Routes = [
   {
     path:'',
-    component:AdminComponent
+    component:AdminComponent,
+    children:[
+      {
+        path:'customer',
+        loadChildren:()=> import('./customer/customer.module').then(c => c.CustomerModule)
+      }
+    ]
   },
-  {
-    path:'customer',
-    loadChildren:()=> import('./customer/customer.module').then(c => c.CustomerModule)
-  }
+
 ];
 
 @NgModule({
