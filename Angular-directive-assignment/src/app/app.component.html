@@ -1,0 +1,29 @@
+ <div class="container-fluid w-100 tabular">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Zip</th>
+      <th>Mobile</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let person of person_data">
+      <td *ngIf="(person.firstname.length >= 5)" appCustom >{{person.firstname}}<td *ngIf="(person.firstname.length < 5)">{{person.firstname}}
+      </td>
+      <td
+      [ngStyle]="(person.lastname[0] =='m'|| person.lastname[0] =='M' ||
+       person.lastname[0] =='c'|| person.lastname[0] =='C' ||
+       person.lastname[0] =='d'|| person.lastname[0] =='D')
+      ?matchM:''"
+       >
+      {{person.lastname}}</td>
+      <td>{{person.zip}}</td>
+      <td *ngIf="mobile">{{person.mobile}}</td>
+      <td><a class="btn btn-primary bg-primary ms-5" (click)="mobileHide()">Hide</a></td>
+    </tr>
+    </tbody>
+  </table>
+ </div>
