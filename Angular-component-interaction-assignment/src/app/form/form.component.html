@@ -1,0 +1,56 @@
+<div class="container border border-1 border-dark mt-5">
+  <div class="row mt-3">
+    <div class="col-2 w-100">
+      <label for="firstName">First name</label>
+    </div>
+    <div class="col" >
+      <input class="form-control w-100" value={{edit_record.firstName}}   type="text" id="firstName" [(ngModel)]="user_arr.firstName">
+    </div>
+  </div>
+  <div class="row  mt-3">
+    <div class="col-2 w-100">
+      <label for="lastName">Last name</label>
+    </div>
+    <div class="col">
+      <input class="form-control w-100" value={{edit_record.lastName}} type="text" id="lastName" [(ngModel)]="user_arr.lastName">
+    </div>
+  </div>
+  <div class="row  mt-3">
+    <div class="col-2 w-100">
+      <label for="email">Email</label>
+    </div>
+    <div class="col">
+      <input class="form-control w-100" value={{edit_record.email}} type="text" id="emil" [(ngModel)]="user_arr.email">
+    </div>
+  </div>
+  <div class="row  mt-3">
+    <div class="col-2 w-100">
+      <label for="date">Dob</label>
+    </div>
+    <div class="col">
+      <input class="form-control w-100" value={{edit_record.date}} type="date" id="date" [(ngModel)]="user_arr.date">
+    </div>
+  </div>
+  <div class="row  mt-3">
+    <div class="col-2 w-100">
+      <label for="mobile">Mobile</label>
+    </div>
+    <div class="col">
+      <input class="form-control w-100" value={{edit_record.mobile}} type="text" id="mobile" [(ngModel)]="user_arr.mobile">
+    </div>
+  </div>
+  <div class="row  mt-2 ms-5">
+    <div class="col ">
+      <input type="submit" class="btn btn-primary w-50" (click)="userData($event)"  value="Add">
+    </div>
+  </div>
+  <div class="row  mt-2 ms-5">
+    <div class="col ">
+      <input type="reset" class="btn btn-danger w-50" (click)="rset()"  value="Reset">
+    </div>
+  </div>
+</div>
+
+
+
+

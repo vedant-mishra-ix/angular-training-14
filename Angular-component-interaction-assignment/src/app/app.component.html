@@ -1,0 +1,46 @@
+ <!-- <div class="container-fluid w-100 tabular">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Zip</th>
+      <th>Mobile</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let person of person_data">
+      <td *ngIf="(person.firstname.length < 5)" appCustom >{{person.firstname}}<td *ngIf="(person.firstname.length >= 5)">{{person.firstname}}
+      </td>
+      <td
+      [ngStyle]="(person.lastname[0] =='m'|| person.lastname[0] =='M' ||
+       person.lastname[0] =='c'|| person.lastname[0] =='C' ||
+       person.lastname[0] =='d'|| person.lastname[0] =='D')
+      ?matchM:''"
+       >
+      {{person.lastname}}</td>
+      <td>{{person.zip}}</td>
+      <td *ngIf="mobile">{{person.mobile}}</td>
+      <td><a class="btn btn-primary bg-primary ms-5" (click)="mobileHide()">Hide</a></td>
+    </tr>
+    </tbody>
+  </table>
+ </div> -->
+ <div class="d-flex justify-content-between">
+  <app-form (user_data_arr)="getuser_data($event)" [edit_record]="edit_record"></app-form>
+  <app-list [user_record]="user_record" (user_record_edit)="edituser_data($event)"></app-list>
+ <!-- <app-form [person_data]="person_data"></app-form> -->
+ <!-- <app-list [person_data]="person_data" (personArr)="person_add($event)"></app-list> -->
+ </div>
+<!-- Steps for making this assignment
+step-1: create form then store the value in array
+step-2: using child to parent communication pass the array data into the parent component
+step-3: then parent to child concept through pass the data parent to child using function
+step-4: then iterate the array data in the table
+step-5: then create two button edit and delete
+step-6: for updating record pass the data child to parent and then create the function in parent component
+         which through over record will be reached out in child component
+step-7: then pass tha data parent to child
+-->
+
