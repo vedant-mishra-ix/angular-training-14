@@ -1,4 +1,4 @@
- <!-- <div class="container-fluid w-100 tabular">
+<!-- <div class="container-fluid w-100 tabular">
   <table class="table table-striped">
     <thead>
     <tr>
@@ -27,12 +27,12 @@
     </tbody>
   </table>
  </div> -->
- <div class="d-flex justify-content-between">
+<div class="d-flex justify-content-between">
   <app-form (user_data_arr)="getuser_data($event)" [edit_record]="edit_record"></app-form>
   <app-list [user_record]="user_record" (user_record_edit)="edituser_data($event)"></app-list>
- <!-- <app-form [person_data]="person_data"></app-form> -->
- <!-- <app-list [person_data]="person_data" (personArr)="person_add($event)"></app-list> -->
- </div>
+  <!-- <app-form [person_data]="person_data"></app-form> -->
+  <!-- <app-list [person_data]="person_data" (personArr)="person_add($event)"></app-list> -->
+</div>
 <!-- Steps for making this assignment
 step-1: create form then store the value in array
 step-2: using child to parent communication pass the array data into the parent component
@@ -43,4 +43,3 @@ step-6: for updating record pass the data child to parent and then create the fu
          which through over record will be reached out in child component
 step-7: then pass tha data parent to child
 -->
-

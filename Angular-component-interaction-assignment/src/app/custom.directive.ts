@@ -1,5 +1,5 @@
 import { Directive, ElementRef } from '@angular/core';
-import {} from './app.component'
+import { } from './app.component'
 
 @Directive({
   selector: '[appCustom]'

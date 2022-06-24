@@ -11,6 +11,7 @@ export class FormComponent implements OnInit {
   user_arr: any =
     [
       {
+        id:1,
         firstName: '',
         lastName: '',
         email: '',
@@ -26,6 +27,34 @@ export class FormComponent implements OnInit {
     console.log(this.new_arr.push(this.user_arr))
     this.user_data_arr.emit(this.new_arr)
     console.log("form data: ", this.edit_record);
+  }
+  update(event:any)
+  {
+    // first-logic
+    // this.new_arr = this.user_arr;
+    // console.log(this.new_arr.push(this.user_arr))
+    // this.user_data_arr.emit(this.new_arr)
+    // second-logic
+    if(this.edit_record.firstName)
+    {
+      this.edit_record.firstName = this.user_arr.firstName
+    }
+    if(this.edit_record.lastName)
+    {
+      this.edit_record.lastName = this.user_arr.lastName
+    }
+    if(this.edit_record.email)
+    {
+      this.edit_record.email = this.user_arr.email
+    }
+    if(this.edit_record.date)
+    {
+      this.edit_record.date = this.user_arr.date
+    }
+    if(this.edit_record.mobile)
+    {
+      this.edit_record.mobile = this.user_arr.mobile
+    }
   }
   rset() {
     this.user_arr = [];   // reset form field which through we are able to store multiple records

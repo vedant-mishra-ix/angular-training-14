@@ -39,14 +39,15 @@
       <input class="form-control w-100" value={{edit_record.mobile}} type="text" id="mobile" [(ngModel)]="user_arr.mobile">
     </div>
   </div>
-  <div class="row  mt-2 ms-5">
+  <div class="row  mt-2 ">
     <div class="col ">
-      <input type="submit" class="btn btn-primary w-50" (click)="userData($event)"  value="Add">
+      <input type="submit" class="btn btn-primary w-100" (click)="userData($event)"  value="Add">
     </div>
-  </div>
-  <div class="row  mt-2 ms-5">
     <div class="col ">
-      <input type="reset" class="btn btn-danger w-50" (click)="rset()"  value="Reset">
+      <input type="submit" class="btn btn-primary w-100" (click)="update($event)"  value="Update">
+    </div>
+    <div class="col ">
+      <input type="reset" class="btn btn-danger w-100" (click)="rset()"  value="Reset">
     </div>
   </div>
 </div>
