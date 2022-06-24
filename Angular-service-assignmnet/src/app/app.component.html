@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="row">
+    <div class="col-1" *ngFor="let list of month_store"><span>{{list.monthname}}</span></div>
+  </div>
+  <div class="row">
+    <div class="col-1 margin " *ngFor="let expense of add_list"><span>{{expense.travel+expense.rent+expense.food}}</span></div>
+  </div>
+</div>
+<div class="containefluidr- mt-5">
+  <table class="table table-striped border border-2">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>travel</th>
+        <th>food</th>
+        <th>rent</th>
+        <th>Amount</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let list of add_list let i = index">
+        <td>{{list.date}}</td>
+        <td>{{list.travel}}</td>
+        <td>{{list.food}}</td>
+        <td>{{list.rent}}</td>
+        <td>{{list.travel+list.food+list.rent}}</td>
+        <td><input type="submit" class="btn btn-danger" (click)="delete_record(i)" value="delete"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<h1 id="demo"></h1>
+<h1 id="demo1"></h1>
+<button type="button" class="btn btn-primary mt-5" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Expense</button>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Expenses Field</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <div class="mb-3">
+            <label for="date" class="col-form-label">Date:</label>
+            <input type="date" class="form-control" id="date" [(ngModel)]="date">
+          </div>
+          <div class="mb-3">
+            <label for="travel" class="col-form-label">Travel:</label>
+            <input type="number" class="form-control" id="travel" [(ngModel)]="travel">
+          </div>
+          <div class="mb-3">
+            <label for="food" class="col-form-label">Food:</label>
+            <input type="number" class="form-control" id="food" [(ngModel)]="food">
+          </div>
+          <div class="mb-3">
+            <label for="rent" class="col-form-label">Rent:</label>
+            <input type="number" class="form-control" id="rent" [(ngModel)]="rent">
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-secondary"  data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" (click)="add() ;alertMessage();monthlyShow();monthdisplay()">submit</button>
+      </div>
+    </div>
+  </div>
+</div>
