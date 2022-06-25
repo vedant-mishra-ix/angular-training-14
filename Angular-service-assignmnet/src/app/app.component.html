@@ -3,7 +3,7 @@
     <div class="col-1" *ngFor="let list of month_store"><span>{{list.monthname}}</span></div>
   </div>
   <div class="row">
-    <div class="col-1 margin " *ngFor="let expense of add_list"><span>{{expense.travel+expense.rent+expense.food}}</span></div>
+    <div class="col-1 margin " ><p>{{ total_amount_money}}</p></div>
   </div>
 </div>
 <div class="containefluidr- mt-5">
@@ -60,7 +60,7 @@
       </div>
       <div class="modal-footer">
         <button type="submit" class="btn btn-secondary"  data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary" (click)="add() ;alertMessage();monthlyShow();monthdisplay()">submit</button>
+        <button type="submit" class="btn btn-primary" (click)="add() ;alertMessage();monthlyShow();monthdisplay();final_month_result();total_amount()">submit</button>
       </div>
     </div>
   </div>
