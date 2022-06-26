@@ -116,7 +116,8 @@ export class AppComponent {
       }
     }
   }
-  total_amount_money:any;
+  total_amount_money:any=[];
+  total_same_month:any =[]
   money:any = 0;
   total_amount()
   {
@@ -127,12 +128,57 @@ export class AppComponent {
         if(this.exp_month[i].monthname == 'jan')
         {
           this.money = this.add_list[j].rent+this.add_list[j].travel+this.add_list[j].food;
-          this.total_amount_money= this.money;
+          this.total_amount_money[j]= this.money;
         }
         if(this.exp_month[i].monthname == 'feb')
         {
           this.money = this.add_list[j].rent+this.add_list[j].travel+this.add_list[j].food;
-          this.total_amount_money= this.money;
+          this.total_amount_money[j]= this.money;
+        }
+        if(this.exp_month[i].monthname == 'mar')
+        {
+          this.money = this.add_list[j].rent+this.add_list[j].travel+this.add_list[j].food;
+          this.total_amount_money[j]= this.money;
+        }
+        if(this.exp_month[i].monthname == 'april')
+        {
+          this.money = this.add_list[j].rent+this.add_list[j].travel+this.add_list[j].food;
+          this.total_amount_money[j]= this.money;
+        }
+        if(this.exp_month[i].monthname == 'june')
+        {
+          this.money = this.add_list[j].rent+this.add_list[j].travel+this.add_list[j].food;
+          this.total_amount_money[j]= this.money;
+        }
+        if(this.exp_month[i].monthname == 'july')
+        {
+          this.money = this.add_list[j].rent+this.add_list[j].travel+this.add_list[j].food;
+          this.total_amount_money[j]= this.money;
+        }
+        if(this.exp_month[i].monthname == 'aug')
+        {
+          this.money = this.add_list[j].rent+this.add_list[j].travel+this.add_list[j].food;
+          this.total_amount_money[j]= this.money;
+        }
+        if(this.exp_month[i].monthname == 'sept')
+        {
+          this.money = this.add_list[j].rent+this.add_list[j].travel+this.add_list[j].food;
+          this.total_amount_money[j]= this.money;
+        }
+        if(this.exp_month[i].monthname == 'oct')
+        {
+          this.money = this.add_list[j].rent+this.add_list[j].travel+this.add_list[j].food;
+          this.total_amount_money[j]= this.money;
+        }
+        if(this.exp_month[i].monthname == 'nov')
+        {
+          this.money = this.add_list[j].rent+this.add_list[j].travel+this.add_list[j].food;
+          this.total_amount_money[j]= this.money;
+        }
+        if(this.exp_month[i].monthname == 'dec')
+        {
+          this.money = this.add_list[j].rent+this.add_list[j].travel+this.add_list[j].food;
+          this.total_amount_money[j]= this.money;
         }
 
       }

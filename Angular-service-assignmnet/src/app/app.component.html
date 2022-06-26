@@ -1,9 +1,11 @@
 <div class="container">
   <div class="row">
-    <div class="col-1" *ngFor="let list of month_store"><span>{{list.monthname}}</span></div>
+    <div class="col-1 border border-1 border-dark bg-danger text-white rounded-pill ps-4 m-2" *ngFor="let list of month_store"><span>{{list.monthname}}</span></div>
   </div>
+</div>
+<div class="container-fluid mt-2">
   <div class="row">
-    <div class="col-1 margin " ><p>{{ total_amount_money}}</p></div>
+    <div class="col-1 pe-5 fw-bold" *ngFor="let amount of total_amount_money "><span>{{amount}}</span></div>
   </div>
 </div>
 <div class="containefluidr- mt-5">
