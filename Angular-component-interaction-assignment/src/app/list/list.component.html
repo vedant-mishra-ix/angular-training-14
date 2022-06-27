@@ -1,0 +1,37 @@
+<div class="container mt-5">
+  <table class="table table-striped border border-1 border-dark">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Email</th>
+        <th>Dob</th>
+        <th>Mobile</th>
+        <th colspan="2">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- <tr *ngFor="let person of person_data">
+        <td>{{person.id}}</td>
+        <td>{{person.firstname}}</td>
+        <td>{{person.lastname}}</td>
+        <td>{{person.email}}</td>
+        <td>{{person.dob}}</td>
+        <td>{{person.mobile}}</td>
+        <td><button class="btn btn-danger" (click)="edit_record($event)">Edit</button></td>
+        <td><button class="btn btn-danger">Delete</button></td>
+      </tr> -->
+       <tr *ngFor="let person of user_record let i = index ">
+        <td>{{i+1}}</td>
+        <td>{{person.firstName}}</td>
+        <td>{{person.lastName}}</td>
+        <td>{{person.email}}</td>
+        <td>{{person.date}}</td>
+        <td>{{person.mobile}}</td>
+        <td><button class="btn btn-danger" (click)="edit_record(person,i)">Edit</button></td>
+        <td><button class="btn btn-danger" (click)="delete(i)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
