@@ -1,0 +1,58 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand text-white" href="#">IncubXperts</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+       <img class="nav-link img">
+        <span class="nav-link text-white">{{input_arr.firstName}}<br> <span>{{input_arr.email}}</span></span>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="container-fluid mt-5 d-flex justify-content-between">
+  <div class="age-form ms-5 border border-6 border-dark w-50 me-5 pt-5 pb-5 rounded">
+    <h4>Age Correction</h4>
+    <div class="row mt-5 mb-3">
+      <div class="col">
+      <input [style.border-color]="(age < 18)?errorColor:successColor" [style.border-width]="size" class="form-control w-100" type="date" placeholder="enter your birth year"  [(ngModel)]="date">
+      </div>
+    </div>
+      <div class="row ">
+        <div class="col">
+          <input type="submit" value="submit" class="btn btn-primary w-100" (click)="currentAge()">
+        </div>
+        <span>Your current age is: <span [style.color]="(age < 18?Red:Green)"> {{age}} </span></span>
+      </div>
+  </div>
+  <div class="registration-form me-5 border border-6 border-dark w-50 pt-5 pb-5 rounded">
+    <h4 class="fs-4">Profile create</h4>
+      <div class="row mb-3">
+        <div class="col">
+          <input class="form-control w-100" type="text" id="firstName" placeholder="-first name-" [(ngModel)]="input_arr.firstName">
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col">
+          <input class="form-control w-100" type="text" id="lastName" placeholder="-last name-" [(ngModel)]="input_arr.lastName">
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col">
+          <input class="form-control w-100" type="text" id="email" placeholder="-email-" [(ngModel)]="input_arr.email">
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col">
+          <input class="form-control w-100" type="text" id="mobile" placeholder="-mobile-" [(ngModel)]="input_arr.mobile">
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col">
+          <input type="submit" value="Submit" class="btn btn-primary w-100" (click)="profileSubmit()">
+        </div>
+      </div>
+  </div>
+</div>
