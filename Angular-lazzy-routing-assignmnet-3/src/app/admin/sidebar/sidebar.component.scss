@@ -1,0 +1,32 @@
+.sidebar
+{
+  width: 150%;
+  height: 90vh;
+  background-color: rgba(36, 26, 26, 0.811);
+}
+.item
+{
+  padding-top: 20%;
+  list-style: none;
+}
+.item-list
+{
+  font-size: 2vw;
+  align-items: center;
+  padding-top: 20%;
+  font-weight: bold;
+  padding: 10%;
+}
+.link
+{
+  text-decoration: none;
+}
+.item-list:hover
+{
+  margin-right: 10%;
+  background-color:rgba(0, 0, 0, .5);
+  color:green !important
+}
+.link:hover{
+  color: green !important;
+}
