@@ -1,0 +1,230 @@
+<div class="container-fluid">
+  <h3 class="text-center">Edit Your Profile</h3>
+  <form class="mt-4" [formGroup]="editProfile" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <span class="form-info">Basic Info</span>
+      <div class="col-2 mt-4"><label for="employeeNo">Employee No<span class="required">*</span></label></div>
+      <div class="col-4 mt-4">
+        <input class="form-control"  type="text" id="employeeNo"  formControlName="employeeNo">
+        <!-- [class.is-invalid]="basicInformation?.invalid && basicInformation?.touched" -->
+        <!-- <span *ngIf="(employeeNo['employeeNo']?.invalid && employeeNo['employeeNo']?.touched)||(employeeNo['employeeNo']?.errors?.['maxlength'])" class="errorColor">Invalid</span> -->
+        <!-- <div *ngIf="(basicInformation?.invalid && basicInformation?.touched) || basicInformation?.dirty">
+          <small *ngIf="basicInformation?.errors?.['required']" class="text-danger">This Field is required</small>
+          <small *ngIf="basicInformation?.errors?.['maxlength']" class="text-danger">Maxmimum 10 digit allowed</small>
+           <small *ngIf="basicInformation?.errors?.['pattern']" class="text-danger">Please provide a valid email address</small> -->
+        <!--</div> -->
+        <span *ngIf="employeeNo['employeeNo']?.errors?.['required'] && (employeeNo['employeeNo']?.touched || employeeNo?.['employeeNo']?.dirty)" class="errorColor">This field is required</span>
+        <span *ngIf="(employeeNo['employeeNo']?.errors?.['maxlength'])" class="errorColor">maxmimum 10 character allowed</span>
+      </div>
+      <div class="col-2 mt-4"><label for="firstName">First Name<span class="required">*</span></label></div>
+      <div class="col-4 mt-4">
+        <input class="form-control" type="text" id="firstName" name="firstName" formControlName="firstName">
+        <span *ngIf="employeeNo['firstName']?.errors?.['required'] && (employeeNo['firstName']?.touched || employeeNo?.['firstName']?.dirty)" class="errorColor">This field is required</span>
+        <span *ngIf="(employeeNo['firstName']?.errors?.['maxlength'])" class="errorColor">maxmimum 10 character allowed</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2 mt-4"><label for="middleName">Middle Name</label></div>
+      <div class="col-4 mt-4">
+        <input class="form-control" type="text" id="middleName" name="middleName" formControlName="middleName">
+        <span *ngIf="employeeNo['middleName']?.errors?.['required'] && (employeeNo['middleName']?.touched || employeeNo?.['middleName']?.dirty)" class="errorColor">This field is required</span>
+        <span *ngIf="(employeeNo['middleName']?.errors?.['maxlength'])" class="errorColor">maxmimum 10 character allowed</span>
+      </div>
+      <div class="col-2 mt-4"><label for="lastName">Last Name<span class="required">*</span></label></div>
+      <div class="col-4 mt-4">
+        <input class="form-control" type="text" id="lastName" name="lastName" formControlName="lastName">
+        <span *ngIf="employeeNo['lastName']?.errors?.['required'] && (employeeNo['lastName']?.touched || employeeNo?.['lastName']?.dirty)" class="errorColor">This field is required</span>
+        <span *ngIf="(employeeNo['lastName']?.errors?.['maxlength'])" class="errorColor">maxmimum 10 character allowed</span>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <span class="form-info">Work</span>
+      <div class="col-2 mt-4"><label for="departMent">Depart Ment<span class="required">*</span></label></div>
+      <div class="col-4 mt-4">
+        <input class="form-control" type="text" id="departMent" name="departMent" formControlName="departMent">
+        <span *ngIf="employeeNo['departMent']?.errors?.['required'] && (employeeNo['departMent']?.touched || employeeNo?.['departMent']?.dirty)" class="errorColor">This field is required</span>
+        <span *ngIf="(employeeNo['departMent']?.errors?.['maxlength'])" class="errorColor">maxmimum 10 character allowed</span>
+      </div>
+      <div class="col-2 mt-4"><label for="Location">Location<span class="required">*</span></label></div>
+      <div class="col-4 mt-4">
+        <input class="form-control" type="text" id="Location" name="Location" formControlName="Location">
+        <span *ngIf="employeeNo['Location']?.errors?.['required'] && (employeeNo['Location']?.touched || employeeNo?.['Location']?.dirty)" class="errorColor">This field is required</span>
+        <span *ngIf="(employeeNo['Location']?.errors?.['maxlength'])" class="errorColor">maxmimum 10 character allowed</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2 mt-4"><label for="workPhone">Workphone</label></div>
+      <div class="col-4 mt-4">
+        <input class="form-control" type="text" id="workPhone" name="workPhone" formControlName="workPhone">
+        <span *ngIf="employeeNo['workPhone']?.errors?.['required'] && (employeeNo['workPhone']?.touched || employeeNo?.['workPhone']?.dirty)" class="errorColor">This field is required</span>
+        <span *ngIf="(employeeNo['workPhone']?.errors?.['maxlength'])" class="errorColor">maxmimum 10 character allowed</span>
+      </div>
+      <div class="col-2 mt-4"><label for="salaryRevision">Salary Revision Due On</label></div>
+      <div class="col-4 mt-4">
+        <input class="form-control" type="date" id="salaryRevision" name="salaryRevision"
+          formControlName="salaryRevision">
+          <span *ngIf="employeeNo['salaryRevision']?.errors?.['required'] && (employeeNo['salaryRevision']?.touched || employeeNo?.['salaryRevision']?.dirty)" class="errorColor">This field is required</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2 mt-4"><label for="dateOfJoining">Date Of Joining<span class="required">*</span></label></div>
+      <div class="col-4 mt-4">
+        <input class="form-control" type="date" id="dateOfJoining" name="dateOfJoining" formControlName="dateOfJoining">
+          <span *ngIf="employeeNo['dateOfJoining']?.errors?.['required'] && (employeeNo['dateOfJoining']?.touched || employeeNo?.['dateOfJoining']?.dirty)" class="errorColor">This field is required</span>
+      </div>
+    </div>
+    <div class="row mt-4" formGroupName="personal">
+      <span class="form-info">Personal</span>
+      <div class="col-2 mt-4"><label for="mobile">Mobile Phone</label></div>
+      <div class="col-4 mt-4">
+        <input class="form-control" type="text" id="mobile" name="mobile" formControlName="mobile">
+        <!-- <div *ngIf="personal?.invalid && (personal?.dirty ||personal?.touched)">
+          <div [hidden]="personal?.errors?.['required']" class="errorColor">This field is required</div>
+        </div> -->
+        <span *ngIf="(personal?.invalid )&& (personal?.touched || personal?.dirty ) ||(personal?.errors?.['maxlength'])" class="errorColor">filed should not be null</span>
+      </div>
+    <div class="col-2 mt-4"><label for="address">Address</label></div>
+    <div class="col-4 mt-4">
+      <input class="form-control" type="text" id="address" name="address" formControlName="address">
+      <span *ngIf="(personal?.invalid && personal?.touched)||(personal?.errors?.['maxlength'])" class="errorColor">filed should not be null</span>
+    </div>
+    <div class="row">
+      <div class="col-2 mt-4"><label for="otherEmail">Other Email</label></div>
+      <div class="col-4 mt-4">
+        <input class="form-control" type="text" id="otherEmail" formControlName="otherEmail">
+        <span *ngIf="(personal?.invalid && personal?.touched)||(personal?.errors?.['maxlength'])" class="errorColor">filed should not be null</span>      </div>
+      <div class="col-2 mt-4"><label for="tags">Tags</label></div>
+      <div class="col-4 mt-4">
+        <input class="form-control" type="text" id="tags" name="tags" formControlName="tags">
+        <span *ngIf="(personal?.invalid && personal?.touched)" class="errorColor">filed should not be null</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2 mt-4"><label for="birthDate">Birth Date</label></div>
+      <div class="col-4 mt-4">
+        <input class="form-control" type="date" id="birthDate" name="birthDate" formControlName="birthDate">
+        <span *ngIf="(personal?.invalid && personal?.touched)" class="errorColor">filed should not be null</span>      </div>
+      <div class="col-2 mt-4"><label for="currentTshirtSize">Current T-shirt Size</label></div>
+      <div class="col-4 mt-4">
+        <select class="form-control" id="currentTshirtSize" name="currentTshirtSize"
+          formControlName="currentTshirtSize">
+          <option>t-size</option>
+        </select>
+        <span *ngIf="(personal?.invalid && personal?.touched)" class="errorColor">filed should not be null</span>      </div>
+    </div>
+    <div class="row">
+      <div class="col-2 mt-4"><label for="martialStatus">Martial Status</label></div>
+      <div class="col-4 mt-4">
+        <select class="form-control" id="martialStatus" name="martialStatus" formControlName="martialStatus">
+          <option>single</option>
+          <option>single</option>
+          <option>single</option>
+        </select>
+        <span *ngIf="(personal?.invalid && personal?.touched)" class="errorColor">filed should not be null</span>      </div>
+      <div class="col-2 mt-4"><label for="bloodGroup">Blood Group</label></div>
+      <div class="col-4 mt-4">
+        <select class="form-control" id="bloodGroup" name="bloodGroup" formControlName="bloodGroup">
+          <option>blood-group</option>
+        </select>
+        <span *ngIf="(personal?.invalid && personal?.touched)" class="errorColor">filed should not be null</span>      </div>
+    </div>
+    <div class="row">
+      <div class="col-2 mt-4"><label for="currentAge">Age</label></div>
+      <div class="col-4 mt-4">
+        <input class="form-control" type="text" id="currentAge" name="currentAge" [value]="age"  formControlName="currentAge">
+             </div>
+    </div>
+</div>
+<div class="row mt-4" formGroupName="summery">
+  <span class="form-info">Summary</span>
+  <div class="row">
+    <div class="col-2 mt-4"><label for="jobDescription">Job Description</label></div>
+    <div class="col-4 mt-4">
+      <textarea class="form-control" rows="1" id="jobDescription" name="jobDescription"
+        formControlName="jobDescription"></textarea>
+      <span *ngIf="summery?.invalid && summery?.touched" class="errorColor">This field is required</span>
+    </div>
+    <div class="col-2 mt-4"><label for="aboutMe">About Me</label></div>
+    <div class="col-4 mt-4">
+      <textarea class="form-control" rows="1" id="aboutMe" name="aboutMe" formControlName="aboutMe"></textarea>
+      <span *ngIf="summery?.invalid && summery?.touched" class="errorColor">This field is required</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-2 mt-4"><label for="expertise">Ask me about/Expertise</label></div>
+    <div class="col-4 mt-4">
+      <textarea class="form-control" rows="1" id="expertise" name="expertise" formControlName="expertise"></textarea>
+      <span *ngIf="summery?.invalid && summery?.touched" class="errorColor">This field is required</span>
+    </div>
+    <div class="col-2 mt-4"><label for="presentAddress">Present Address</label></div>
+    <div class="col-4 mt-4">
+      <textarea class="form-control" rows="1" id="presentAddress" name="presentAddress"
+        formControlName="presentAddress"></textarea>
+      <span *ngIf="summery?.invalid && summery?.touched" class="errorColor">This field is required</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-2 mt-4"><label for="residencePhone">Residence phone</label></div>
+    <div class="col-4 mt-4">
+      <input class="form-control" type="text" id="residencePhone" name="residencePhone"
+        formControlName="residencePhone">
+      <span *ngIf="summery?.invalid && summery?.touched" class="errorColor">This field is required</span>
+    </div>
+  </div>
+</div>
+<div class="row mt-4">
+  <span class="form-info">Work experience <span class="float-end me-4 fs-4 btn btn-primary"
+     (click)="add()" >+</span></span>
+  <div class="col-2">Previous Company Name</div>
+  <div class="col-2">Job Title</div>
+  <div class="col-2">From Date</div>
+  <div class="col-2">To Date</div>
+  <div class="col-2">Job Description</div>
+  <div class="col-2">Relevance</div>
+</div>
+<div formArrayName="addField">
+<div class="row" *ngFor="let cont of addField.controls; let i = index" [formGroupName]="i">
+  <div class="form-group col-2">
+    <input class="auto form-control" type="text"
+      formControlName="previousCompanyName" >
+    <span *ngIf="workexperience?.invalid || workexperience?.touched" class="errorColor">This field is
+      required</span>
+  </div>
+  <div class="form-group col-2">
+    <input class="form-control" type="text"  name="jobTitle" formControlName="jobTitle">
+    <span *ngIf="workexperience?.invalid && workexperience?.touched" class="errorColor">This field is
+      required</span>
+  </div>
+  <div class="form-group col-2">
+    <input class="form-control" type="date"  name="fromDate" formControlName="fromDate">
+    <span *ngIf="workexperience?.invalid && workexperience?.touched" class="errorColor">This field is
+      required</span>
+  </div>
+  <div class="form-group col-2">
+    <input class="form-control" type="text"  name="toDate" formControlName="toDate" >
+    <span *ngIf="workexperience?.invalid && workexperience?.touched" class="errorColor">This field is
+      required</span>
+  </div>
+  <div class="form-group col-2">
+    <input class="form-control" type="text"  name="jobDescriptions" formControlName="jobDescriptions" >
+    <span *ngIf="workexperience?.invalid && workexperience?.touched" class="errorColor">This field is
+      required</span>
+  </div>
+  <div class="form-group col-2">
+    <select class="form-control"  name="relevance" formControlName="relevance" >
+      <option>yes</option>
+    </select>
+    <span *ngIf="workexperience?.invalid && workexperience?.touched" class="errorColor">This field is
+      required</span>
+  </div>
+</div>
+</div>
+<div class="row mt-4">
+  <div class="col">
+    <input  class="btn btn-primary w-100" type="submit" value="Update">
+  </div>
+</div>
+</form>
+</div>
+
+
