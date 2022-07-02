@@ -17,7 +17,7 @@ export class FormComponent implements OnInit {
   ageValid = 'green';
   submit:boolean = true;
   editProfile:FormGroup = new FormGroup({});
-  workexperience:FormGroup = new FormGroup({});
+  workexperience:FormGroup= new FormGroup({});
   DynamicArray:any =[];
   age:number=0;
   constructor(private fb: FormBuilder)
@@ -50,26 +50,34 @@ export class FormComponent implements OnInit {
       presentAddress:['',Validators.required],
       residencePhone:['',Validators.required],
     }),
-    addField:fb.array([
-    ])
-  })
-  this.workexperience = this.fb.group({
-    previousCompanyName:[''],
-    jobTitle:[''],
-    fromDate:[''],
-    toDate:[''],
-    jobDescriptions:[''],
-    relevance:[''],
   })
 }
   ngOnInit(): void {
+    this.workexperience = this.fb.group({
+      previousCompanyName:[''],
+      jobTitle:[''],
+      fromDate:[''],
+      toDate:[''],
+      jobDescriptions:[''],
+      relevance:[''],
+      addField:this.fb.array([])
+    })
   }
   onSubmit()
   {
+    this.submit = false;
+    if(this.editProfile.valid)
+    {
       console.log("Reactive Form Value:",this.editProfile.value);
       console.log("Form array", this.workexperience.value)
       console.log("personal array", this.personal.value.mobile)
       this.ageCalculate()
+      this.onChangeTickets
+    }
+    else
+    {
+      alert("Please fill all field correctly");
+    }
   }
   get employeeNo()
   {
@@ -88,11 +96,44 @@ export class FormComponent implements OnInit {
   {
     return this.editProfile.controls['addField'] as FormArray
   }
-  add()
+  get f()
   {
-    this.addField.push(this.workexperience);
-    this.DynamicArray.push(this.addField);
+    return this.workexperience.controls;
   }
+  get t()
+  {
+    return this.workexperience.controls['addField'] as FormArray
+  }
+  get a()
+  {
+    return this.t.controls as FormGroup[];
+  }
+
+  onChangeTickets(e:any) {
+    const numberOfTickets = e.target.value ;
+      for (let i = this.t.length; i < numberOfTickets; i++) {
+        this.t.push(
+          this.fb.group({
+            previousCompanyName:[''],
+            jobTitle:[''],
+            fromDate:[''],
+            toDate:[''],
+            jobDescriptions:[''],
+            relevance:[''],
+          })
+        );
+      }
+    }
+
+
+
+
+
+  // add()
+  // {
+  //   this.addField.push(this.workexperience);
+  //   this.DynamicArray.push(this.addField);
+  // }
   ageCalculate()
   {
     let currentYear = new Date();
