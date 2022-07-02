@@ -11,17 +11,27 @@ import { RegistrationService } from '../core/service/registration.service';
 })
 export class LoginComponent implements OnInit {
 
+  errorMessage:boolean = false;
+  successMessage:boolean = false;
   loginProfile : FormGroup = new FormGroup({});
   constructor(private fb : FormBuilder  , private loginService : RegistrationService)
   {
     this.loginProfile = fb.group({
-      userName:['',[Validators.required]],
-      password:['',[Validators.required]]
+      userName:['',Validators.required],
+      password:['',Validators.required]
     })
    }
    login()
    {
-    this.loginProfile.reset();
+    // this.loginProfile.reset();
+    if(this.loginProfile.valid)
+    {
+      this.errorMessage = true;
+    }
+    else
+    {
+      this.successMessage = true;
+    }
     return this.loginService.userLogin(this.loginProfile.value);
    }
 
@@ -55,6 +65,7 @@ export class LoginComponent implements OnInit {
   //  }
 
   ngOnInit(): void {
+    // return this.loginService.userLogin(this.loginProfile.value)
   }
 
 }

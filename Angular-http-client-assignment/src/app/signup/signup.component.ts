@@ -11,18 +11,29 @@ import { RegistrationService } from '../core/service/registration.service';
 })
 export class SignupComponent implements OnInit {
   registration : FormGroup = new FormGroup({});
+  ErrorMessage:boolean = false;
+  SuccesMessage:boolean = false;
   constructor(private fb : FormBuilder ,private signupService : RegistrationService) {
     this.registration = fb.group({
-      userName:['',[Validators.required]],
-      password:['',[Validators.required]],
-      email:['',[Validators.required]],
-      mobile:['',[Validators.required]]
+      userName:['',Validators.required],
+      password:['',Validators.required],
+      email:['',Validators.required],
+      mobile:['',Validators.required]
     })
    }
 
    submit()
    {
-    return this.signupService.submitData(this.registration.value)
+    if(this.registration.invalid)
+    {
+      this.ErrorMessage = true;
+    }
+    else
+    {
+      alert("Registration Done")
+      this.SuccesMessage = true;
+      return this.signupService.submitData(this.registration.value)
+    }
    }
    get registrationValidation()
    {

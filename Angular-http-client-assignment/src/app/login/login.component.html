@@ -22,6 +22,13 @@
       <span>For new user please register<a routerLink="/signup">Sign-up</a></span>
     </div>
   </div>
+  <div class="row mt-3">
+    <div class="col">
+      <span *ngIf="successMessage" style="color:green">Succesfull login</span><br>
+      <span *ngIf="errorMessage" style="color:red">Something wrong</span>
+    </div>
+  </div>
   </form>
   </div>
 </div>
+
