@@ -20,6 +20,13 @@ export class FormComponent implements OnInit {
   DynamicArray:any =[];
   age:number=0;
   currentYear:number=0;
+  currentFromDate:number=0;
+  selectFromMonth:number=0;
+  currentFromMonth:number=0;
+  currentToDate:number=0;
+  selectToMonth:number=0;
+  currentToMonth:number=0;
+
   constructor(private fb: FormBuilder)
   {
     this.editProfile = this.fb.group({
@@ -67,7 +74,7 @@ export class FormComponent implements OnInit {
   {
     this.submit = false;
 
-    if(this.editProfile.valid && this.currentYear < 2022 && this.age > 18)
+    if(this.editProfile.valid && this.currentYear < 2022 && this.age > 18 && this.currentFromDate < 2022)
     {
       this.array.push(this.workexperience.value);
       console.log("Reactive Form Value:",this.editProfile.value);
@@ -76,6 +83,8 @@ export class FormComponent implements OnInit {
       this.ageCalculate();
       this.dynamicForm();
       this.joinningDate();
+      this.fromDate();
+      this.toDate();
       console.log("joiniing date: ", this.currentYear)
     }
     else
@@ -163,6 +172,26 @@ export class FormComponent implements OnInit {
     this.currentYear = currentYearValue;
     this.age = currentYearValue-year;
 
+  }
+  fromDate()
+  {
+    let currentMonth = new Date();
+    let fromYear = new Date(this.workexperience.value.fromDate);
+    let currentfromYear = fromYear.getFullYear();
+    let selectMonth = fromYear.getMonth()+1;
+    this.currentFromDate = currentfromYear;
+    this.selectFromMonth = selectMonth;
+    this.currentFromMonth = currentMonth.getMonth()+1
+  }
+  toDate()
+  {
+    let currentMonth = new Date();
+    let fromYear = new Date(this.workexperience.value.toDate);
+    let currentfromYear = fromYear.getFullYear();
+    let selectMonth = fromYear.getMonth()+1;
+    this.currentToDate = currentfromYear;
+    this.selectToMonth = selectMonth;
+    this.currentToMonth = currentMonth.getMonth()+1
   }
 }
 

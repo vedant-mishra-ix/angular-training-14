@@ -73,10 +73,10 @@
     <div class="row">
       <div class="col-2 mt-4"><label for="workPhone">Workphone</label></div>
       <div class="col-4 mt-4">
-        <input class="form-control" type="text" id="workPhone" name="workPhone" formControlName="workPhone">
+        <input class="form-control" type="text" id="workPhone" name="workPhone" formControlName="workPhone" oninput="this.value=this.value.replace(/[^0-9 .]/g,'')" maxlength="10">
         <span
           *ngIf="employeeNo['workPhone']?.errors?.['required'] && (employeeNo['workPhone']?.touched || employeeNo?.['workPhone']?.dirty)"
-          class="errorColor">This field is required</span>
+          class="errorColor">This field is required and only digit allowed</span>
         <span *ngIf="(employeeNo['workPhone']?.errors?.['maxlength'])" class="errorColor">maxmimum 10 character
           allowed</span>
       </div>
@@ -173,7 +173,7 @@
         <div class="col-4 mt-4">
           <input class="form-control" [style.color]="(age < 18)?Error:Valid" type="text" id="currentAge" name="currentAge" value={{age}}
             formControlName="currentAge" >
-            <span *ngIf="(age < 18)?Error:''" class="errorColor">Age should be greater than 18</span>
+            <span *ngIf="(age < 18 )?Error:''" class="errorColor">Age should be greater than 18</span>
         </div>
       </div>
     </div>
@@ -210,8 +210,9 @@
         <div class="col-2 mt-4"><label for="residencePhone">Residence phone</label></div>
         <div class="col-4 mt-4">
           <input class="form-control" type="text" id="residencePhone" name="residencePhone"
-            formControlName="residencePhone">
-          <span *ngIf="summery.controls['residencePhone']?.invalid && summery.controls['residencePhone']?.touched" class="errorColor">This field is required</span>
+            formControlName="residencePhone" oninput="this.value=this.value.replace(/[^0-9 .]/g,'')" maxlength="10">
+            <span *ngIf="(summery.controls['residencePhone']?.invalid)&& (summery.controls['residencePhone']?.touched || summery.controls['residencePhone']?.dirty ) ||(summery.controls['residencePhone']?.errors?.['maxlength'])"
+            class="errorColor">field should not be null and only 10 digit allowed</span>
         </div>
       </div>
     </div>
@@ -238,14 +239,16 @@
           required</span>
       </div>
       <div class="form-group col-2">
-        <input class="form-control" type="date" name="fromDate" formControlName="fromDate">
+        <input class="form-control" type="date" name="fromDate" formControlName="fromDate" (click)="fromDate()">
         <span *ngIf="f['fromDate']?.errors?.['required'] &&(f['fromDate']?.touched || f['fromDate']?.dirty ) " class="errorColor">This field is
           required</span>
+          <span *ngIf="(currentFromDate > 2022 || selectFromMonth > currentFromMonth)?Error:''" class="errorColor">From date can not greater than present year or monthS</span>
       </div>
       <div class="form-group col-2">
-        <input class="form-control" type="date" name="toDate" formControlName="toDate">
+        <input class="form-control" type="date" name="toDate" formControlName="toDate" (click)="toDate()">
         <span *ngIf="f['toDate']?.errors?.['required'] &&(f['toDate']?.touched || f['toDate']?.dirty ) " class="errorColor">This field is
           required</span>
+          <span *ngIf="(currentToDate > 2022 || selectToMonth > currentToMonth  || currentToDate < currentFromDate)?Error:''" class="errorColor">To date can not greater than present year or monthS and can not be smaller than Form date value</span>
       </div>
       <div class="form-group col-2">
         <input class="form-control" type="text" name="jobDescriptions" formControlName="jobDescriptions">
@@ -262,35 +265,36 @@
       <div class="row "  *ngFor="let ticket of formgroup; let i = index" [formGroup]="ticket">
           <div class="form-group col-2">
             <input class="auto form-control" type="text" formControlName="previousCompanyName">
-            <!-- <span *ngIf="workexperience?.invalid || workexperience?.touched" class="errorColor">This field is
-              required</span> -->
+            <span *ngIf="f['previousCompanyName']?.errors?.['required'] &&(f['previousCompanyName']?.touched || f['previousCompanyName']?.dirty ) " class="errorColor">This field is
+              required</span>
           </div>
           <div class="form-group col-2">
             <input class="form-control" type="text" name="jobTitle" formControlName="jobTitle">
-            <!-- <span *ngIf="workexperience?.invalid && workexperience?.touched" class="errorColor">This field is
-              required</span> -->
+            <span *ngIf="f['jobTitle']?.errors?.['required'] &&(f['jobTitle']?.touched || f['jobTitle']?.dirty ) " class="errorColor">This field is
+              required</span>
           </div>
           <div class="form-group col-2">
             <input class="form-control" type="date" name="fromDate" formControlName="fromDate">
-            <!-- <span *ngIf="workexperience?.invalid && workexperience?.touched" class="errorColor">This field is
-              required</span> -->
+           <span *ngIf="f['fromDate']?.errors?.['required'] &&(f['fromDate']?.touched || f['fromDate']?.dirty ) " class="errorColor">This field is
+          required</span>
+          <span *ngIf="(currentFromDate > 2022 || selectFromMonth > currentFromMonth)?Error:''" class="errorColor">From date can not greater than present year or monthS</span>
           </div>
           <div class="form-group col-2">
             <input class="form-control" type="date" name="toDate" formControlName="toDate">
-            <!-- <span *ngIf="workexperience?.invalid && workexperience?.touched" class="errorColor">This field is
-              required</span> -->
+            <span *ngIf="f['toDate']?.errors?.['required'] &&(f['toDate']?.touched || f['toDate']?.dirty ) " class="errorColor">This field is
+              required</span>
           </div>
           <div class="form-group col-2">
             <input class="form-control" type="text" name="jobDescriptions" formControlName="jobDescriptions">
-            <!-- <span *ngIf="workexperience?.invalid && workexperience?.touched" class="errorColor">This field is
-              required</span> -->
+            <span *ngIf="f['jobDescriptions']?.errors?.['required'] &&(f['jobDescriptions']?.touched || f['jobDescriptions']?.dirty ) " class="errorColor">This field is
+              required</span>
           </div>
           <div class="form-group col-2">
             <select class="form-control" name="relevance" formControlName="relevance">
               <option>yes</option>
             </select>
-            <!-- <span *ngIf="workexperience?.invalid && workexperience?.touched" class="errorColor">This field is
-              required</span> -->
+            <span *ngIf="f['relevance']?.errors?.['required'] &&(f['relevance']?.touched || f['relevance']?.dirty ) " class="errorColor">This field is
+              required</span>
           </div>
         </div>
       </div>
