@@ -118,7 +118,7 @@ export class FormComponent implements OnInit {
     // const toDate = e.target.value;
     // const jobDescriptions = e.target.value;
     // const relevance = e.target.value;
-      for (let i = this.t.length; i < this.array.length; i++) {
+      for (let i = this.t.length ; i <= this.array.length; i++) {
         this.t.push(
           this.fb.group({
             previousCompanyName:[''],

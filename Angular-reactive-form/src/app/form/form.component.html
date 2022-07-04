@@ -109,13 +109,13 @@
           <div [hidden]="personal?.errors?.['required']" class="errorColor">This field is required</div>
         </div> -->
         <span *ngIf="(personal?.invalid)&& (personal?.touched || personal?.dirty ) ||(personal?.errors?.['maxlength'])"
-          class="errorColor">filed should not be null and only 10 digit allowed</span>
+          class="errorColor">field should not be null and only 10 digit allowed</span>
       </div>
       <div class="col-2 mt-4"><label for="address">Address</label></div>
       <div class="col-4 mt-4">
         <input class="form-control" type="text" id="address" name="address" formControlName="address">
         <span *ngIf="(personal?.invalid && personal?.touched)||(personal?.errors?.['maxlength'])"
-          class="errorColor">filed should not be null</span>
+          class="errorColor">field should not be null</span>
       </div>
       </div>
       <div class="row">
@@ -123,19 +123,19 @@
         <div class="col-4 mt-4">
           <input class="form-control" type="text" id="otherEmail" formControlName="otherEmail">
           <span *ngIf="(personal?.invalid && personal?.touched)||(personal?.errors?.['maxlength']|| personal?.errors?.['pattern'])"
-            class="errorColor">filed should not be null or fill proper email</span>
+            class="errorColor">field should not be null or fill proper email</span>
         </div>
         <div class="col-2 mt-4"><label for="tags">Tags</label></div>
         <div class="col-4 mt-4">
           <input class="form-control" type="text" id="tags" name="tags" formControlName="tags">
-          <span *ngIf="(personal?.invalid && personal?.touched)" class="errorColor">filed should not be null</span>
+          <span *ngIf="(personal?.invalid && personal?.touched)" class="errorColor">field should not be null</span>
         </div>
       </div>
       <div class="row">
         <div class="col-2 mt-4"><label for="birthDate">Birth Date</label></div>
         <div class="col-4 mt-4">
           <input class="form-control" type="date" id="birthDate" name="birthDate" formControlName="birthDate" (click)="ageCalculate()">
-          <span *ngIf="(personal?.invalid && personal?.touched)" class="errorColor">filed should not be null</span>
+          <span *ngIf="(personal?.invalid && personal?.touched)" class="errorColor">field should not be null</span>
         </div>
         <div class="col-2 mt-4"><label for="currentTshirtSize">Current T-shirt Size</label></div>
         <div class="col-4 mt-4">
@@ -144,7 +144,7 @@
             <option>-select t-shirt size-</option>
             <option *ngFor="let item of tshirtsSize | keyvalue">{{item.value}}</option>
           </select>
-          <span *ngIf="(personal?.invalid && personal?.touched)" class="errorColor">filed should not be null</span>
+          <span *ngIf="(personal?.invalid && personal?.touched)" class="errorColor">field should not be null</span>
         </div>
       </div>
       <div class="row">
@@ -156,7 +156,7 @@
             <option>single</option>
             <option>single</option>
           </select>
-          <span *ngIf="(personal?.invalid && personal?.touched)" class="errorColor">filed should not be null</span>
+          <span *ngIf="(personal?.invalid && personal?.touched)" class="errorColor">field should not be null</span>
         </div>
         <div class="col-2 mt-4"><label for="bloodGroup">Blood Group</label></div>
         <div class="col-4 mt-4">
@@ -164,7 +164,7 @@
             <option>-select blood group-</option>
             <option *ngFor="let item of bloodGroup | keyvalue ">{{item.value}}</option>
           </select>
-          <span *ngIf="(personal?.invalid && personal?.touched)" class="errorColor">filed should not be null</span>
+          <span *ngIf="(personal?.invalid && personal?.touched)" class="errorColor">field should not be null</span>
         </div>
       </div>
       <div class="row">
@@ -216,7 +216,7 @@
   </form>
   <form [formGroup]="workexperience">
     <div class="row mt-4">
-      <span class="form-info">Work experience <span class="float-end me-4 fs-4 btn btn-primary"  (click)="autoGenerateForm()">+</span></span>
+      <span class="form-info">Work experience <button class="float-end me-4 fs-4 btn btn-primary" [disabled]="workexperience.invalid"  (click)="autoGenerateForm()">+</button></span>
       <div class="col-2">Previous Company Name</div>
       <div class="col-2">Job Title</div>
       <div class="col-2">From Date</div>
@@ -257,7 +257,7 @@
         <span *ngIf="f['relevance']?.errors?.['required'] &&(f['relevance']?.touched || f['relevance']?.dirty ) " class="errorColor">This field is
           required</span>
       </div>
-      <div class="row " *ngFor="let ticket of formgroup; let i = index" [formGroup]="ticket">
+      <div class="row "  *ngFor="let ticket of formgroup; let i = index" [formGroup]="ticket">
           <div class="form-group col-2">
             <input class="auto form-control" type="text" formControlName="previousCompanyName">
             <!-- <span *ngIf="workexperience?.invalid || workexperience?.touched" class="errorColor">This field is
