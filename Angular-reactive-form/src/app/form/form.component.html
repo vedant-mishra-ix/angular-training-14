@@ -105,17 +105,17 @@
       <div class="row">
       <div class="col-2 mt-4"><label for="mobile">Mobile Phone</label></div>
       <div class="col-4 mt-4">
-        <input class="form-control" type="text" id="mobile" name="mobile" formControlName="mobile">
+        <input class="form-control" type="text" id="mobile" name="mobile" formControlName="mobile" oninput="this.value=this.value.replace(/[^0-9 .]/g,'')" maxlength="10">
         <!-- <div *ngIf="personal?.invalid && (personal?.dirty ||personal?.touched)">
           <div [hidden]="personal?.errors?.['required']" class="errorColor">This field is required</div>
         </div> -->
-        <span *ngIf="(personal?.invalid)&& (personal?.touched || personal?.dirty ) ||(personal?.errors?.['maxlength'])"
+        <span *ngIf="(personal.controls['mobile']?.invalid)&& (personal.controls['mobile']?.touched || personal.controls['mobile']?.dirty ) ||(personal.controls['mobile']?.errors?.['maxlength'])"
           class="errorColor">field should not be null and only 10 digit allowed</span>
       </div>
       <div class="col-2 mt-4"><label for="address">Address</label></div>
       <div class="col-4 mt-4">
         <input class="form-control" type="text" id="address" name="address" formControlName="address">
-        <span *ngIf="(personal?.invalid && personal?.touched)||(personal?.errors?.['maxlength'])"
+        <span *ngIf="(personal.controls['address']?.invalid)&& (personal.controls['address']?.touched || personal.controls['address']?.dirty ) ||(personal.controls['address']?.errors?.['maxlength'])"
           class="errorColor">field should not be null</span>
       </div>
       </div>
@@ -123,20 +123,20 @@
         <div class="col-2 mt-4"><label for="otherEmail">Other Email</label></div>
         <div class="col-4 mt-4">
           <input class="form-control" type="text" id="otherEmail" formControlName="otherEmail">
-          <span *ngIf="(personal?.invalid && personal?.touched)||(personal?.errors?.['maxlength']|| personal?.errors?.['pattern'])"
+          <span *ngIf="(personal.controls['otherEmail']?.invalid && personal.controls['otherEmail'].touched)||(personal.controls['otherEmail']?.errors?.['maxlength']|| personal.controls['otherEmail']?.errors?.['pattern'])"
             class="errorColor">field should not be null or fill proper email</span>
         </div>
         <div class="col-2 mt-4"><label for="tags">Tags</label></div>
         <div class="col-4 mt-4">
           <input class="form-control" type="text" id="tags" name="tags" formControlName="tags">
-          <span *ngIf="(personal?.invalid && personal?.touched)" class="errorColor">field should not be null</span>
+          <span *ngIf="(personal.controls['tags']?.invalid && personal.controls['tags']?.touched)" class="errorColor">field should not be null</span>
         </div>
       </div>
       <div class="row">
         <div class="col-2 mt-4"><label for="birthDate">Birth Date</label></div>
         <div class="col-4 mt-4">
           <input class="form-control" type="date" id="birthDate" name="birthDate" formControlName="birthDate" (click)="ageCalculate()">
-          <span *ngIf="(personal?.invalid && personal?.touched)" class="errorColor">field should not be null</span>
+          <span *ngIf="(personal.controls['birthDate']?.invalid && personal.controls['birthDate']?.touched)" class="errorColor">field should not be null</span>
         </div>
         <div class="col-2 mt-4"><label for="currentTshirtSize">Current T-shirt Size</label></div>
         <div class="col-4 mt-4">
@@ -145,7 +145,7 @@
             <option>-select t-shirt size-</option>
             <option *ngFor="let item of tshirtsSize | keyvalue">{{item.value}}</option>
           </select>
-          <span *ngIf="(personal?.invalid && personal?.touched)" class="errorColor">field should not be null</span>
+          <span *ngIf="(personal.controls['currentTshirtSize']?.invalid && personal.controls['currentTshirtSize']?.touched)" class="errorColor">field should not be null</span>
         </div>
       </div>
       <div class="row">
@@ -157,7 +157,7 @@
             <option>single</option>
             <option>single</option>
           </select>
-          <span *ngIf="(personal?.invalid && personal?.touched)" class="errorColor">field should not be null</span>
+          <span *ngIf="(personal.controls['martialStatus']?.invalid && personal.controls['martialStatus']?.touched)" class="errorColor">field should not be null</span>
         </div>
         <div class="col-2 mt-4"><label for="bloodGroup">Blood Group</label></div>
         <div class="col-4 mt-4">
@@ -165,7 +165,7 @@
             <option>-select blood group-</option>
             <option *ngFor="let item of bloodGroup | keyvalue ">{{item.value}}</option>
           </select>
-          <span *ngIf="(personal?.invalid && personal?.touched)" class="errorColor">field should not be null</span>
+          <span *ngIf="(personal.controls['bloodGroup']?.invalid && personal.controls['bloodGroup']?.touched)" class="errorColor">field should not be null</span>
         </div>
       </div>
       <div class="row">
@@ -184,12 +184,12 @@
         <div class="col-4 mt-4">
           <textarea class="form-control" rows="1" id="jobDescription" name="jobDescription"
             formControlName="jobDescription"></textarea>
-          <span *ngIf="summery?.invalid && summery?.touched" class="errorColor">This field is required</span>
+          <span *ngIf="summery.controls['jobDescription']?.invalid && summery.controls['jobDescription']?.touched" class="errorColor">This field is required</span>
         </div>
         <div class="col-2 mt-4"><label for="aboutMe">About Me</label></div>
         <div class="col-4 mt-4">
           <textarea class="form-control" rows="1" id="aboutMe" name="aboutMe" formControlName="aboutMe"></textarea>
-          <span *ngIf="summery?.invalid && summery?.touched" class="errorColor">This field is required</span>
+          <span *ngIf="summery.controls['aboutMe']?.invalid && summery.controls['aboutMe']?.touched" class="errorColor">This field is required</span>
         </div>
       </div>
       <div class="row">
@@ -197,13 +197,13 @@
         <div class="col-4 mt-4">
           <textarea class="form-control" rows="1" id="expertise" name="expertise"
             formControlName="expertise"></textarea>
-          <span *ngIf="summery?.invalid && summery?.touched" class="errorColor">This field is required</span>
+          <span *ngIf="summery.controls['expertise']?.invalid && summery.controls['expertise']?.touched" class="errorColor">This field is required</span>
         </div>
         <div class="col-2 mt-4"><label for="presentAddress">Present Address</label></div>
         <div class="col-4 mt-4">
           <textarea class="form-control" rows="1" id="presentAddress" name="presentAddress"
             formControlName="presentAddress"></textarea>
-          <span *ngIf="summery?.invalid && summery?.touched" class="errorColor">This field is required</span>
+          <span *ngIf="summery.controls['presentAddress']?.invalid && summery.controls['presentAddress']?.touched" class="errorColor">This field is required</span>
         </div>
       </div>
       <div class="row">
@@ -211,7 +211,7 @@
         <div class="col-4 mt-4">
           <input class="form-control" type="text" id="residencePhone" name="residencePhone"
             formControlName="residencePhone">
-          <span *ngIf="summery?.invalid && summery?.touched" class="errorColor">This field is required</span>
+          <span *ngIf="summery.controls['residencePhone']?.invalid && summery.controls['residencePhone']?.touched" class="errorColor">This field is required</span>
         </div>
       </div>
     </div>
