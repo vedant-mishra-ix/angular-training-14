@@ -11,14 +11,15 @@ import { TshirtSize } from '../core/model/tshirt-size';
 export class FormComponent implements OnInit {
   tshirtsSize = TshirtSize;
   bloodGroup = FormEnum;
-  ageError = 'red';
-  ageValid = 'green';
+  Error = 'red';
+  Valid = 'green';
   submit:boolean = true;
   editProfile:FormGroup = new FormGroup({});
   workexperience:FormGroup= new FormGroup({});
   array:any[] = [];
   DynamicArray:any =[];
   age:number=0;
+  currentYear:number=0;
   constructor(private fb: FormBuilder)
   {
     this.editProfile = this.fb.group({
@@ -66,7 +67,7 @@ export class FormComponent implements OnInit {
   {
     this.submit = false;
 
-    if(this.editProfile.valid)
+    if(this.editProfile.valid && this.currentYear < 2022 && this.age > 18)
     {
       this.array.push(this.workexperience.value);
       console.log("Reactive Form Value:",this.editProfile.value);
@@ -74,6 +75,8 @@ export class FormComponent implements OnInit {
       console.log("new array", this.array);
       this.ageCalculate();
       this.dynamicForm();
+      this.joinningDate();
+      console.log("joiniing date: ", this.currentYear)
     }
     else
     {
@@ -145,12 +148,19 @@ export class FormComponent implements OnInit {
   //   this.addField.push(this.workexperience);
   //   this.DynamicArray.push(this.addField);
   // }
+  joinningDate()
+  {
+    let currentYear = new Date(this.editProfile.value.dateOfJoining);
+    let currentYearValue = currentYear.getFullYear();
+    this.currentYear = currentYearValue;
+  }
   ageCalculate()
   {
     let currentYear = new Date();
     let dob = new Date(this.personal.value.birthDate);
     let year = dob.getFullYear();
     let currentYearValue = currentYear.getFullYear()
+    this.currentYear = currentYearValue;
     this.age = currentYearValue-year;
 
   }

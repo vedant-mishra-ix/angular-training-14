@@ -92,10 +92,11 @@
     <div class="row">
       <div class="col-2 mt-4"><label for="dateOfJoining">Date Of Joining<span class="required">*</span></label></div>
       <div class="col-4 mt-4">
-        <input class="form-control" type="date" id="dateOfJoining" name="dateOfJoining" formControlName="dateOfJoining">
+        <input class="form-control" [style.color]="(currentYear > 2022)?Error:Valid" type="date" id="dateOfJoining" name="dateOfJoining" formControlName="dateOfJoining" (click)="joinningDate()">
         <span
           *ngIf="employeeNo['dateOfJoining']?.errors?.['required'] && (employeeNo['dateOfJoining']?.touched || employeeNo?.['dateOfJoining']?.dirty)"
           class="errorColor">This field is required</span>
+          <span *ngIf="(currentYear > 2022)?Error:''" class="errorColor">Joinning year should be same or less not greater than current year</span>
       </div>
     </div>
     <div class="row mt-4" formGroupName="personal">
@@ -170,8 +171,9 @@
       <div class="row">
         <div class="col-2 mt-4"><label for="currentAge">Age</label></div>
         <div class="col-4 mt-4">
-          <input class="form-control" type="text" id="currentAge" name="currentAge" value={{age}}
+          <input class="form-control" [style.color]="(age < 18)?Error:Valid" type="text" id="currentAge" name="currentAge" value={{age}}
             formControlName="currentAge" >
+            <span *ngIf="(age < 18)?Error:''" class="errorColor">Age should be greater than 18</span>
         </div>
       </div>
     </div>
@@ -295,7 +297,7 @@
   </form>
   <div class="row mt-4">
     <div class="col">
-      <input class="btn btn-primary w-100" type="submit" value="Update" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="onSubmit()">
+      <input class="btn btn-primary w-100" type="submit"  value="Update" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="onSubmit()">
     </div>
   </div>
                             <!-- Model -->
