@@ -1,0 +1,58 @@
+<app-navbar></app-navbar>
+<div class="container-fluid pt-5">
+  <div class="row">
+    <div class="col btn btn-dark fw-bold fs-6 mt-1 ms-1 pt-2 pb-2 shadow-lg p-3 mb-5 bg-dark rounded" *ngFor="let item of months"><span (click)="filterData(item.id)">{{item.name}}<br><span class="text-warning">{{item.totalAmount}}</span></span></div>
+  </div>
+</div>
+<div class="container-fluid mt-5">
+  <table class="table table-bordered border-dark table-secondary table-striped border border-2 shadow-lg p-3 mb-5">
+    <thead>
+      <tr>
+        <th>Sr.no</th>
+        <th>Item</th>
+        <th>Date</th>
+        <th>Amount</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of expenses let i = index">
+        <td>{{i+1}}</td>
+        <td>{{item.item}}</td>
+        <td>{{item.date}}</td>
+        <td>{{item.amount}}</td>
+        <td><input type="submit" class="btn btn-danger" (click)="delete(i)" value="Delete"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<button type="button" class="btn btn-primary mt-5 float-end me-5 p-2 ps-5 pe-5 shadow-lg p-3 mb-5 " data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Expense</button>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Expenses Field</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <div class="mb-3">
+            <label for="item" class="col-form-label">ExpenseType:</label>
+            <input type="text" class="form-control" id="item" [(ngModel)]="item">
+          </div>
+          <div class="mb-3">
+            <label for="date" class="col-form-label">Date:</label>
+            <input type="date" class="form-control" id="date" [(ngModel)]="date">
+          </div>
+          <div class="mb-3">
+            <label for="amount" class="col-form-label">Amount:</label>
+            <input type="number" class="form-control" id="amount" [(ngModel)]="amount">
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" (click)="addExpenses()" data-bs-dismiss="modal">Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
