@@ -1,1 +1,38 @@
-<h1>contact works!</h1>
+<div class="container-fluid mt-2">
+  <div class="row">
+    <div class="col-12 bg-light">
+      <h3 class="heading">CONTACT US</h3>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-6 owner-img">
+      <img class="img">
+    </div>
+  </div>
+  <form class="contact-form" [formGroup]="contactDetails" (ngSubmit)="Submit()">
+    <div class="row mt-5 ">
+      <h3>Suscribe</h3>
+      <div class="col-8">
+        <input class="form-control" type="text" id="email" name="email" placeholder="-Email-" formControlName="email">
+      </div>
+      <span *ngIf="contact['email']?.errors?.['required'] && contact['email']?.touched" class="error">This Field is required</span>
+    </div>
+    <div class="row mt-2">
+      <div class="col-8">
+        <input class="form-control" type="password" id="password" name="password" placeholder="-password-" formControlName="password">
+      </div>
+      <span *ngIf="contact['password']?.errors?.['required'] && contact['password']?.touched" class="error">This Field is required</span>
+    </div>
+    <div class="row mt-2">
+      <div class="col-8">
+        <input class="form-control" type="password" id="confirmPassword" name="confirmPassword" placeholder="-confirm-" formControlName="confirmPassword">
+      </div>
+      <span *ngIf="contact['confirmPassword']?.errors?.['required'] && contact['confirmPassword']?.touched" class="error">This Field is required</span>
+    </div>
+    <div class="row mt-2">
+      <div class="col-8">
+        <input class="btn btn-danger w-100" [disabled]="contactDetails.invalid" type="submit" id="email">
+      </div>
+    </div>
+  </form>
+</div>
