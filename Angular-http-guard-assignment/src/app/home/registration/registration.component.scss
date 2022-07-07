@@ -1,0 +1,27 @@
+.form
+{
+  margin-left: 30%;
+}
+.margin
+{
+  margin-top: 5%;
+  background-color: green;
+}
+.color
+{
+  color: red;
+  font-weight: bold;
+}
+.errorColor
+{
+  color: red;
+  font-weight: bold;
+}
+input.ng-invalid
+{
+  border:1px solid red;
+}
+input.ng-valid
+{
+  border:2px solid green;
+}
