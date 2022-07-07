@@ -23,7 +23,7 @@ export class AddComponent implements OnInit {
       firstName:['',[Validators.required]],
       lastName:['',[Validators.required]],
       location:['',[Validators.required]],
-      mobileNumber:['',[Validators.required]],
+      mobileNumber:['',[Validators.required,Validators.maxLength(10)]],
       aboutme:['',[Validators.required]],
       bloodGroup:['',[Validators.required]],
       isActive:[true]

@@ -1,5 +1,5 @@
 
-<div class="container-fluid margin mt-1">
+<div class="container-fluid margin ">
   <h3>Add Employee Details</h3>
   <form [formGroup]="Addetails"  (ngSubmit)="submit()">
   <div class="row ">
@@ -22,9 +22,10 @@
   </div>
   <div class="row">
     <div class="col-6 mt-3">
-      <input class="form-control" [style.border-color]="AddDetails['mobileNumber']?.invalid?Error:Success" type="text" id="mobileNumber" name="mobileNumber" formControlName="mobileNumber" placeholder="-mobileNumber-">
+      <input class="form-control" [style.border-color]="AddDetails['mobileNumber']?.invalid?Error:Success" type="text" id="mobileNumber" name="mobileNumber" formControlName="mobileNumber" placeholder="-mobileNumber-" oninput="this.value=this.value.replace(/[^0-9{10} .]/g,'')" maxlength="10">
     </div>
-    <span *ngIf="AddDetails['mobileNumber']?.errors?.['required'] && AddDetails['mobileNumber']?.touched" class="error">This field is required</span>
+    <span *ngIf="AddDetails['mobileNumber']?.errors?.['required'] && (AddDetails['mobileNumber']?.touched )" class="error" >This field is required</span>
+    <span *ngIf="AddDetails['mobileNumber']?.errors?.['maxlength'] " class="error" >This field is required</span>
   </div>
   <div class="row">
     <div class="col-6 mt-3">

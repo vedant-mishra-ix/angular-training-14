@@ -16,6 +16,7 @@
         <input class="form-control" type="text" id="email" name="email" placeholder="-Email-" formControlName="email">
       </div>
       <span *ngIf="contact['email']?.errors?.['required'] && contact['email']?.touched" class="error">This Field is required</span>
+      <span *ngIf="contact['email']?.errors?.['pattern']" class="error">please fill valid email</span>
     </div>
     <div class="row mt-2">
       <div class="col-8">

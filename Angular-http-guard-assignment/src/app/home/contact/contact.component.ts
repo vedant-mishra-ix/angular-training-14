@@ -12,7 +12,7 @@ export class ContactComponent implements OnInit {
   ngOnInit(): void {
     this.contactDetails = this.fb.group(
       {
-       email:['',[Validators.required]],
+       email:['',[Validators.required,Validators.pattern(/\b[^0-9]([a-z]{1,}|[A-Z0-9]{1,})@[a-zA-z]{1,}\./)]],
        password:['',[Validators.required]],
        confirmPassword:['',[Validators.required]],
       }
