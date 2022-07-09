@@ -1,0 +1,25 @@
+<div
+  class="modal"
+  tabindex="-1"
+  role="dialog"
+  [ngStyle]="{'display':displayStyle}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">User Record</h4>
+      </div>
+      <div class="modal-body">
+        <p>Id: {{id}}</p>
+        <p>First Name: {{deleteUserRecord.firstName}}</p>
+        <p>Last Name: {{deleteUserRecord.lasttName}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger"
+                (click)="closePopup()">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
