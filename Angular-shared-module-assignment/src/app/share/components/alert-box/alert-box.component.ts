@@ -21,14 +21,21 @@ export class AlertBoxComponent implements OnInit {
   displayStyle = "none";
   id:number=0;
   deleteUserRecord:any=[];
+  clickYes:boolean=false;
+  clickNo:boolean=false;
 
   openPopup(id:any,list:any) {
     this.displayStyle = "block";
     this.id = id;
     this.deleteUserRecord = list;
   }
+  okPopup() {
+    this.displayStyle = "none";
+    this.clickYes = true;
+  }
   closePopup() {
     this.displayStyle = "none";
+    this.clickNo = true;
   }
   // public decline() {
   //   this.activeModal.close(false)

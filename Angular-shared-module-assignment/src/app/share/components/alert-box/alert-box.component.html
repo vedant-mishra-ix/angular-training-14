@@ -6,7 +6,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title">User Record</h4>
+        <h4 class="modal-title">Are You Sure</h4>
       </div>
       <div class="modal-body">
         <p>Id: {{id}}</p>
@@ -15,8 +15,12 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger"
+                (click)="okPopup()">
+          yes
+        </button>
+        <button type="button" class="btn btn-danger"
                 (click)="closePopup()">
-          Close
+          no
         </button>
       </div>
     </div>

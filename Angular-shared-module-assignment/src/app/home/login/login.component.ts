@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
     this.loginService.userLogin(this.loginProfile.value).subscribe(res => {
       if (res.result) {
         console.log("token:", res);
+        alert("Welcome: "+this.loginProfile.value.userName)
         this.authService.setToken(res.result)
         setTimeout(() => {
           this.route.navigate(['admin'])
