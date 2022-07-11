@@ -1,0 +1,67 @@
+<app-alert-box></app-alert-box>
+<div class="container-fluid justify-content-start mt-5 table-overflow">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Sr no.</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Location</th>
+        <th>mobileNumber</th>
+        <th>aboutme</th>
+        <th>bloodGroup</th>
+        <th colspan="2">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let list of EmployeeList.result">
+        <td>{{list.id}}</td>
+        <td>{{list.firstName}}</td>
+        <td>{{list.lastName}}</td>
+        <td>{{list.location}}</td>
+        <td>{{list.mobileNumber}}</td>
+        <td>{{list.aboutme}}</td>
+        <td>{{list.bloodGroup}}</td>
+        <td>
+          <span class="btn btn-danger font w-50 m-4" (click)="update(list , list.id)">Edit
+            <app-alert-box value="list.id"></app-alert-box>
+          </span>
+          <!-- <span class="btn btn-danger font  w-50 m-4" (click)="delete(list.id)">Delete</span> -->
+
+        </td>
+        <td> <span class="btn btn-danger font  w-50 m-4" (click)="delete(list.id,list)">Delete</span></td>
+
+      </tr>
+    </tbody>
+  </table>
+<!-- Modal -->
+<!-- <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="Addetails" (ngSubmit)="updateSubmit()">
+          <div class="row">
+            <div class="col-12"><input class="form-control" value={{updateArray.id}} type="text" id="id" name="id" formControlName="id" placeholder="-id-" ></div>
+          </div>
+        <div class="row">
+          <div class="col-12"><input class="form-control" value={{updateArray.firstName}} type="text" id="firstName" name="firstName" formControlName="firstName" placeholder="-first name-" ></div>
+        </div>
+        <div class="row">
+          <div class="col-12"><input class="form-control" value={{updateArray.lastName}} type="text" id="lastName" name="lastName" formControlName="lastName" placeholder="-last name-"></div>
+        </div>
+        <div class="row">
+          <div class="col-12"><input class="form-control" value={{updateArray.locaionName}} type="text" id="location" name="location" formControlName="location" placeholder="-location-"></div>
+        </div>
+        <div class="modal-footer">
+          <input type="submit" class="btn btn-primary" data-bs-dismiss="modal" value="update">
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div> -->
