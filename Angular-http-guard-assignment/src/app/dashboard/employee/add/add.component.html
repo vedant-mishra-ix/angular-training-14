@@ -1,0 +1,51 @@
+
+<div class="container-fluid margin ">
+  <h3>Add Employee Details</h3>
+  <form [formGroup]="Addetails"  (ngSubmit)="submit()">
+  <div class="row ">
+    <div class="col-6">
+      <input class="form-control" [style.border-color]="AddDetails['firstName']?.invalid?Error:Success"  type="text" id="firstName" name="firstName" formControlName="firstName" placeholder="-first name-">
+    </div>
+    <span *ngIf="AddDetails['firstName']?.errors?.['required'] && AddDetails['firstName']?.touched" class="error">This field is required</span>
+  </div>
+  <div class="row">
+    <div class="col-6 mt-3">
+      <input class="form-control" [style.border-color]="AddDetails['lastName']?.invalid?Error:Success" type="text" id="lastName" name="lastName" formControlName="lastName" placeholder="-last name-">
+    </div>
+    <span *ngIf="AddDetails['lastName']?.errors?.['required'] && AddDetails['lastName']?.touched" class="error">This field is required</span>
+  </div>
+  <div class="row">
+    <div class="col-6 mt-3">
+      <input class="form-control" [style.border-color]="AddDetails['location']?.invalid?Error:Success" type="text" id="location" name="location" formControlName="location" placeholder="-location-">
+    </div>
+    <span *ngIf="AddDetails['location']?.errors?.['required'] && AddDetails['location']?.touched" class="error">This field is required</span>
+  </div>
+  <div class="row">
+    <div class="col-6 mt-3">
+      <input class="form-control" [style.border-color]="AddDetails['mobileNumber']?.invalid?Error:Success" type="text" id="mobileNumber" name="mobileNumber" formControlName="mobileNumber" placeholder="-mobileNumber-" oninput="this.value=this.value.replace(/[^0-9{10} .]/g,'')" maxlength="10">
+    </div>
+    <span *ngIf="AddDetails['mobileNumber']?.errors?.['required'] && (AddDetails['mobileNumber']?.touched )" class="error" >This field is required</span>
+    <span *ngIf="AddDetails['mobileNumber']?.errors?.['maxlength'] " class="error" >This field is required</span>
+  </div>
+  <div class="row">
+    <div class="col-6 mt-3">
+      <input class="form-control" [style.border-color]="AddDetails['aboutme']?.invalid?Error:Success" type="text" id="aboutme" name="aboutme" formControlName="aboutme" placeholder="-aboutme-">
+    </div>
+    <span *ngIf="AddDetails['aboutme']?.errors?.['required'] && AddDetails['aboutme']?.touched" class="error">This field is required</span>
+  </div>
+  <div class="row">
+    <div class="col-6 mt-3">
+      <select class="form-control" [style.border-color]="AddDetails['bloodGroup']?.invalid?Error:Success" id="bloodGroup" name="bloodGroup" formControlName="bloodGroup" placeholder="-bloodGroup-">
+        <option >-select blood group-</option>
+        <option *ngFor="let blood of BloodGroup | keyvalue">{{blood.value}}</option>
+        </select>
+    </div>
+    <span *ngIf="AddDetails['bloodGroup']?.errors?.['required'] && AddDetails['bloodGroup']?.touched" class="error">This field is required</span>
+  </div>
+  <div class="row">
+    <div class="col-6 mt-3">
+      <input class="btn btn-primary w-100" [disabled]="Addetails.invalid" type="submit" value="submit">
+    </div>
+  </div>
+  </form>
+</div>
