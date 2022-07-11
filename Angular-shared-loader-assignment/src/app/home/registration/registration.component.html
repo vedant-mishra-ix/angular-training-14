@@ -1,0 +1,34 @@
+<div class="container-fluid margin">
+  <div class="border bg-light ">
+  <form class="form" [formGroup]="registration" (ngSubmit)="submit()">
+    <h3>Registraion</h3>
+  <div class="row mt-4">
+    <div class="col">
+      <input type="text" id="userName" class="form-control w-50" placeholder="userName" formControlName="userName">
+      <span *ngIf="registrationValidation['userName'].errors?.['required'] && (registrationValidation['userName'].touched || registrationValidation['userName'].dirty)" class="color">This field is required</span>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col">
+      <input type="text" id="password" class="form-control w-50" placeholder="password" formControlName="password">
+      <span *ngIf="registrationValidation['password'].errors?.['required'] && (registrationValidation['password'].touched || registrationValidation['password'].dirty)" class="color">This field is required</span>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col">
+      <input type="text" id="email" class="form-control w-50" placeholder="email" formControlName="email">
+      <span *ngIf="registrationValidation['email'].errors?.['required'] && (registrationValidation['email'].touched || registrationValidation['email'].dirty)" class="color">This field is required</span>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col">
+      <input type="submit"   class="btn btn-primary w-50" value="Sign-up">
+      <br>
+      <span>If you have account please go<a routerLink="/login" class="underline underline-primary">Login</a></span>
+    </div>
+  </div>
+  <span *ngIf="ErrorMessage" class="errorColor">Something wrong*</span>
+  <span *ngIf="SuccesMessage" >Done</span>
+  </form>
+  </div>
+</div>
