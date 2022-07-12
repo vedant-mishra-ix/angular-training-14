@@ -1,0 +1,17 @@
+<div class="container-fluid">
+  <h2 class="fs-2 text-danger bg-light">Id: {{list_id}}</h2>
+  <table class="table table-striped">
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Mobile</th>
+    </tr>
+    <tr *ngFor="let item of list_arr">
+      <td>{{item.id}}</td>
+      <td>{{item.name}}</td>
+      <td>{{item.email}}</td>
+      <td>{{item.mobile}}</td>
+    </tr>
+  </table>
+</div>

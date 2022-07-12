@@ -1,0 +1,56 @@
+<div class="container-fluid margin">
+  <form [formGroup]="Addetails" (ngSubmit)="updateSubmit()">
+    <div class="row ">
+      <h4>Edit Employee Profile</h4>
+      <div class="col-6">
+        <input class="form-control" value={{MatchDetails.id}} [style.border-color]="Edit['firstName']?.invalid?Error:Success"  type="text" id="id" name="id" placeholder="-id-" formControlName="id">
+      </div>
+      <span *ngIf="Edit['id']?.errors?.['required'] && Edit['id']?.touched" class="error">This field is required</span>
+    </div>
+    <div class="row">
+      <div class="col-6 mt-2">
+        <input class="form-control" value={{MatchDetails.firstName}} [style.border-color]="Edit['firstName']?.invalid?Error:Success"type="text" id="firstName" name="firstName" formControlName="firstName" placeholder="-first name-">
+      </div>
+      <span *ngIf="Edit['firstName']?.errors?.['required'] && Edit['firstName']?.touched" class="error">This field is required</span>
+    </div>
+    <div class="row">
+      <div class="col-6 mt-2">
+        <input class="form-control" value={{MatchDetails.lastName}} [style.border-color]="Edit['lastName']?.invalid?Error:Success" type="text" id="lastName" name="lastName" formControlName="lastName" placeholder="-last name-">
+      </div>
+      <span *ngIf="Edit['lastName']?.errors?.['required'] && Edit['lastName']?.touched" class="error">This field is required</span>
+    </div>
+    <div class="row">
+      <div class="col-6 mt-2">
+        <input class="form-control" value={{MatchDetails.location}} [style.border-color]="Edit['location']?.invalid?Error:Success" type="text" id="location" name="location" formControlName="location" placeholder="-location-">
+      </div>
+      <span *ngIf="Edit['location']?.errors?.['required'] && Edit['location']?.touched" class="error">This field is required</span>
+    </div>
+    <div class="row">
+      <div class="col-6 mt-2">
+        <input class="form-control" value={{MatchDetails.mobileNumber}} [style.border-color]="Edit['mobileNumber']?.invalid?Error:Success" type="text" id="mobileNumber" name="mobileNumber" formControlName="mobileNumber" placeholder="-mobile number-">
+      </div>
+      <span *ngIf="Edit['mobileNumber']?.errors?.['required'] && Edit['mobileNumber']?.touched" class="error">This field is required</span>
+    </div>
+    <div class="row">
+      <div class="col-6 mt-2">
+        <input class="form-control" value={{MatchDetails.aboutme}} [style.border-color]="Edit['aboutme']?.invalid?Error:Success" type="text" id="aboutme" name="aboutme" formControlName="aboutme" placeholder="-about me-">
+      </div>
+      <span *ngIf="Edit['aboutme']?.errors?.['required'] && Edit['aboutme']?.touched" class="error">This field is required</span>
+    </div>
+    <div class="row">
+      <div class="col-6 mt-3">
+        <select class="form-control" [style.border-color]="Edit['bloodGroup']?.invalid?Error:Success"  id="bloodGroup" name="bloodGroup" formControlName="bloodGroup" placeholder="-bloodGroup-">
+          <option >-select blood group-</option>
+          <option *ngFor="let blood of BloodGroup | keyvalue">{{blood.value}}</option>
+          </select>
+      </div>
+      <span *ngIf="Edit['bloodGroup']?.errors?.['required'] && Edit['bloodGroup']?.touched" class="error">This field is required</span>
+    </div>
+    <div class="row">
+      <div class="col-6 mt-2">
+        <input class="btn btn-primary w-100" [disabled]="Addetails.invalid"  type="submit" value="update" >
+      </div>
+    </div>
+  </form>
+  <!-- jhg{{updateArray.firstName}} -->
+</div>

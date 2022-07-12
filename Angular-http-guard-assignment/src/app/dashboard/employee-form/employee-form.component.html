@@ -1,0 +1,26 @@
+
+<div class="container-fluid margin mt-5">
+  <h3>Add Employee Details</h3>
+  <form [formGroup]="Addetails" (ngSubmit)="submit()">
+  <div class="row ">
+    <div class="col-6">
+      <input class="form-control" type="text" id="firstName" name="firstName" formControlName="firstName" placeholder="-first name-">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6 mt-3">
+      <input class="form-control" type="text" id="lastName" name="lastName" formControlName="lastName" placeholder="-last name-">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6 mt-3">
+      <input class="form-control" type="text" id="location" name="location" formControlName="location" placeholder="-location-">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6 mt-3">
+      <input class="btn btn-primary w-100" type="submit" value="submit">
+    </div>
+  </div>
+  </form>
+</div>
