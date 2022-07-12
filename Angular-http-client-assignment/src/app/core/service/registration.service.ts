@@ -1,24 +1,27 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EnvironmentInjector, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class RegistrationService {
 
+  baseUrl:any = environment.baseApiUrl;
   constructor(private http : HttpClient , private route : Router) {
    }
    submitData(registeredData:string)
    {
-    this.http.post<any>("https://tech-resources-core-api.azurewebsites.net/Register",registeredData).subscribe((res) =>{
+    this.http.post<any>(`${this.baseUrl}/Registration`,registeredData).subscribe((res) =>{
       alert("Registered successfull"+res.userName);
       this.route.navigate(['login']);
     },error => {alert("Error got"+error)})
    }
    userLogin(loginData:string)
    {
-    this.http.post<any>("https://tech-resources-core-api.azurewebsites.net/Login", loginData).subscribe(res => { this.route.navigate(['dashboard'])
+    this.http.post<any>(`${this.baseUrl}/Login`, loginData).subscribe(res => { this.route.navigate(['dashboard'])
       // const userprofile = res.map((m:any) =>
       // {
       //   return m == loginData ;
@@ -33,5 +36,6 @@ export class RegistrationService {
       //   alert("user not found");
       // }
     }, error => {alert("error found") });
+    console.log("Environment:", this.baseUrl)
    }
 }
