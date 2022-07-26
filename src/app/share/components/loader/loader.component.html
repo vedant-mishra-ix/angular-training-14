@@ -1,0 +1,12 @@
+<!-- <div [ngStyle]="{'display':displayStyle}" [hidden]="!loading" class="spinner-border" role="status">
+  <span class="bg-danger loader-spin">Loading...</span>
+</div> -->
+<!-- my-loader.component.html -->
+<div class="progress-loader" [hidden]="!loading">
+  <div class="loading-spinner">
+    <!--  <img src="https://loading.io/mod/spinner/gear-set/index.svg"> -->
+      <div class="spinner-border text-primary margin" role="status">
+        <span class="sr-only  loading-message"></span>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+.form
+{
+  margin-left: 30%;
+}
+.color
+{
+  color: red;
+  font-weight: bold;
+}
+.margin
+{
+  padding-top: 15%;
+}
+input.ng-invalid
+{
+  border:1px solid red;
+}
+input.ng-valid
+{
+  border:2px solid green;
+}
